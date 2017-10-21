@@ -1,0 +1,23 @@
+<div class="content-page">
+    <div class="content">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h4 class="page-title"><?= $this->translate('New Product Status'); ?></h4>
+                    <ol class="breadcrumb">
+                        <li>
+                            <a href="<?= $this->url('home') ?>"><?= $this->translate('Home'); ?></a>
+                        </li>
+                        <li>
+                            <a href="<?= $this->url('product-status/default') ?>"><?= $this->translate('Product Status'); ?></a>
+                        </li>
+                        <li class="active"><?= $this->translate('New'); ?></li>
+                    </ol>
+                </div>
+            </div>
+            <?= $this->partial('partials/product-status/form.phtml'); ?>
+        </div>
+    </div>
+    <?= $this->partial('partials/footer.phtml'); ?>
+</div>
+<?= $this->partial('partials/flash_message.phtml', ['success' => $this->success, 'error' => $this->error]) ?>

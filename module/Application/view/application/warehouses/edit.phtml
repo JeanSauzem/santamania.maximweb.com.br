@@ -1,0 +1,29 @@
+<div class="content-page">
+    <div class="content">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="page-header-2">
+                        <h4 class="page-title">Editar Local de Armazenamento</h4>
+                        <ol class="breadcrumb">
+                            <li>
+                                <a href="<?= $this->url('home') ?>">Home</a>
+                            </li>
+                            <li>
+                                <a href="<?= $this->url('warehouses/default') ?>">Locais de Armazenamento</a>
+                            </li>
+                            <li class="active">Editar</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <?= $this->partial('partials/warehouses/form.phtml'); ?>
+                </div>
+            </div>
+        </div>
+    </div>
+    <?= $this->partial('partials/footer.phtml'); ?>
+</div>
+<?= $this->partial('partials/flash_message.phtml', ['success' => $this->success, 'error' => $this->error]) ?>

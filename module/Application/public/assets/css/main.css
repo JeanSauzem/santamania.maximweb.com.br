@@ -1,0 +1,26 @@
+.fixed-table-container {
+    border: none !important;
+}
+
+.page-header-2 {
+    margin: -10px -20px 22px -15px;
+}
+
+.table > tbody > tr > td,
+.table > tbody > tr > th,
+.table > tfoot > tr > td,
+.table > tfoot > tr > th,
+.table > thead > tr > td,
+.table > thead > tr > th {
+    vertical-align: middle;
+}
+
+.help-block ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.help-block li {
+    color: #f6504d;
+}

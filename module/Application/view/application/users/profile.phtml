@@ -1,0 +1,145 @@
+<div class="content-page">
+    <div class="content">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="btn-group pull-right m-t-15">
+                        <button type="button" class="btn btn-default dropdown-toggle waves-effect waves-light" data-toggle="dropdown" aria-expanded="false">Settings
+                            <span class="m-l-5"><i class="fa fa-cog"></i></span></button>
+                        <ul class="dropdown-menu drop-menu-right" role="menu">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">Separated link</a></li>
+                        </ul>
+                    </div>
+
+                    <h4 class="page-title"><?= $this->translate('Profile') ?></h4>
+                    <ol class="breadcrumb">
+                        <li>
+                            <a href="<?= $this->url('home') ?>"><?= $this->translate('Home') ?></a>
+                        </li>
+                        <li class="active">
+                            <?= $this->translate('Profile') ?>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+            <?= $this->partial('partials/loading.phtml'); ?>
+            <div class="row page-content" style="display: none">
+                <div class="col-md-12">
+                    <div class="card-box">
+                        <div class="col-lg-6">
+                            <table class="table table-hover">
+                                <tbody>
+                                    <tr>
+                                        <td><?= $this->translate('First Name') ?></td>
+                                        <td><span class="bold">Marcelo</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><?= $this->translate('Last Name') ?></td>
+                                        <td>Marcelo</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <form action="#" class="form-horizontal">
+                                    <div class="form-group">
+                                        <label class="col-sm-5"><?= $this->translate('First Name') ?></label>
+                                        <label class="col-sm-7 font-normal">
+                                            Marcelo
+                                        </label>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-5 control-label"><?= $this->translate('Last Name') ?></label>
+                                        <div class="col-sm-7">
+                                            <a href="#" id="inline-firstname" data-type="text" data-pk="1" data-placement="right" data-placeholder="Required" data-title="Enter your firstname"></a>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-5 control-label">Select, local array, custom display</label>
+                                        <div class="col-sm-7">
+                                            <a href="#" id="inline-sex" data-type="select" data-pk="1" data-value="" data-title="Select sex"></a>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-5 control-label">Select, error while loading</label>
+                                        <div class="col-sm-7">
+                                            <a href="#" id="inline-status" data-type="select" data-pk="1" data-value="0" data-source="/status" data-title="Select status">Active</a>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-5 control-label">Combodate</label>
+                                        <div class="col-sm-7">
+                                            <a href="#" id="inline-dob" data-type="combodate" data-value="2015-09-24" data-format="YYYY-MM-DD" data-viewformat="DD/MM/YYYY" data-template="D / MMM / YYYY" data-pk="1" data-title="Select Date of birth"></a>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-5 control-label">Textarea, buttons below. Submit by
+                                            <i>ctrl+enter</i></label>
+                                        <div class="col-sm-7">
+                                            <a href="#" id="inline-comments" data-type="textarea" data-pk="1" data-placeholder="Your comments here..." data-title="Enter comments">awesome user!</a>
+                                        </div>
+                                    </div>
+
+                                </form>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <h4 class="m-b-30 m-t-0 header-title"><b>Popover Editor</b></h4>
+                                <form action="#" class="form-horizontal editor-horizontal">
+                                    <div class="form-group">
+                                        <label class="col-sm-5 control-label">Simple Text Field</label>
+                                        <div class="col-sm-7">
+                                            <a href="#" id="username" data-type="text" data-pk="1" data-title="Enter username">superuser</a>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-5 control-label">Empty text field, required</label>
+                                        <div class="col-sm-7">
+                                            <a href="#" id="firstname" data-type="text" data-pk="1" data-placement="right" data-placeholder="Required" data-title="Enter your firstname"></a>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-5 control-label">Select, local array, custom display</label>
+                                        <div class="col-sm-7">
+                                            <a href="#" id="sex" data-type="select" data-pk="1" data-value="" data-title="Select sex"></a>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-5 control-label">Select, error while loading</label>
+                                        <div class="col-sm-7">
+                                            <a href="#" id="status" data-type="select" data-pk="1" data-value="0" data-source="/status" data-title="Select status">Active</a>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-5 control-label">Combodate</label>
+                                        <div class="col-sm-7">
+                                            <a href="#" id="dob" data-type="combodate" data-value="1984-05-15" data-format="YYYY-MM-DD" data-viewformat="DD/MM/YYYY" data-template="D / MMM / YYYY" data-pk="1" data-title="Select Date of birth"></a>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-5 control-label">Textarea, buttons below. Submit by
+                                            <i>ctrl+enter</i></label>
+                                        <div class="col-sm-7">
+                                            <a href="#" id="comments" data-type="textarea" data-pk="1" data-placeholder="Your comments here..." data-title="Enter comments">awesome user!</a>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <?= $this->partial('partials/footer.phtml'); ?>
+</div>
+<?php
+$this->inlineScript()
+//->prependFile($this->basePath('assets/accounts/accounts-tour.js'), 'text/javascript');
+?>
+<?= $this->partial('partials/flash_message.phtml', ['success' => $this->success, 'error' => $this->error]) ?>

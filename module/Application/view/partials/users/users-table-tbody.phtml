@@ -1,0 +1,27 @@
+<?php if ($this->data): ?>
+    <?php /** @var $item \Application\Entity\Users */ ?>
+    <?php foreach ($this->data as $item): ?>
+        <tr>
+            <th><input class="checkbox" type="checkbox"></th>
+            <th scope="row"><?= "{$item->getId()}" ?></th>
+            <td><?= "{$item->getFirstName()} {$item->getLastName()}" ?></td>
+            <td><?= "{$item->getEmail()}" ?></td>
+            <td><?= "{$this->getStatus($item->getActive())}" ?></td>
+            <td class="text-right">
+                <a href="<?= $this->url('users/default', ['action' => 'edit', 'id' => $item->getId()]) ?>"
+                   class="btn btn-primary btn-sm tooltips"
+                   data-toggle="tooltip" data-placement="top"
+                   title="Editar">
+                    <i class="fa fa-pencil"></i>
+                </a>
+                <button onclick="remove('users', '<?= $item->getId() ?>')"
+                        class="btn btn-danger btn-sm tooltips user-delete"
+                        data-toggle="tooltip" data-placement="top"
+                        title="Remover">
+                    <i class="fa fa-trash"></i>
+                </button>
+            </td>
+        </tr>
+    <?php endforeach; ?>
+<?php endif; ?>
+<?= $this->partial('partials/delete.phtml'); ?>

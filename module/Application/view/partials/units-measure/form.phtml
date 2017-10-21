@@ -1,0 +1,60 @@
+<?php
+$this->headLink()
+    ->prependStylesheet($this->basePath('assets/plugins/bootstrap-select/css/bootstrap-select.min.css'))
+?>
+<?= $this->partial('partials/loading.phtml'); ?>
+    <div class="row page-content" style="display: none">
+        <div class="col-sm-12">
+            <div class="card-box">
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <?php /** @var $field \Zend\Form\Form */ ?>
+                        <?php $this->form->setAttribute('class', 'form-horizontal'); ?>
+                        <?= $this->form()->openTag($this->form); ?>
+
+                        <div class="form-group">
+                            <?php $field = $this->form->get('name'); ?>
+                            <?php $field->setAttribute('class', 'form-control'); ?>
+                            <?php $field->setLabel('Nome'); ?>
+                            <?php $field->setLabelAttributes(['class' => 'col-md-2 control-label']); ?>
+                            <?= $this->formLabel($field); ?>
+                            <div class="col-md-8">
+                                <?= $this->formElement($field); ?>
+                                <span class="help-block"><?= $this->formElementErrors($field) ?></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <?php $field = $this->form->get('symbol'); ?>
+                            <?php $field->setAttribute('class', 'form-control'); ?>
+                            <?php $field->setLabel('Símbolo'); ?>
+                            <?php $field->setLabelAttributes(['class' => 'col-md-2 control-label']); ?>
+                            <?= $this->formLabel($field); ?>
+                            <div class="col-md-8">
+                                <?= $this->formElement($field); ?>
+                                <span class="help-block"><?= $this->formElementErrors($field) ?></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group m-b-0">
+                            <div class="col-sm-offset-2 col-sm-8">
+                                <?php $field = $this->form->get('submit'); ?>
+                                <?php $field->setAttributes([
+                                    'class' => 'btn btn-info waves-effect waves-light',
+                                ]); ?>
+                                <?php $field->setLabel('Salvar'); ?>
+                                <?= $this->formButton($field); ?>
+                            </div>
+                        </div>
+
+                        <?= $this->formHidden($this->form->get('id')) ?>
+                        <?= $this->form()->closeTag($this->form); ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php
+$this->inlineScript()
+    ->prependFile($this->basePath('assets/plugins/bootstrap-select/js/bootstrap-select.min.js'), 'text/javascript');

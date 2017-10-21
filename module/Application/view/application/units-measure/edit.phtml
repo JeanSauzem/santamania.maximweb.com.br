@@ -1,0 +1,25 @@
+<div class="content-page">
+    <div class="content">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="page-header-2">
+                        <h4 class="page-title">Editar Unidade de Medida</h4>
+                        <ol class="breadcrumb">
+                            <li>
+                                <a href="<?= $this->url('home') ?>">Home</a>
+                            </li>
+                            <li>
+                                <a href="<?= $this->url('units-measure/default') ?>">Unidades de Medida</a>
+                            </li>
+                            <li class="active">Editar</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <?= $this->partial('partials/units-measure/form.phtml'); ?>
+        </div>
+    </div>
+    <?= $this->partial('partials/footer.phtml'); ?>
+</div>
+<?= $this->partial('partials/flash_message.phtml', ['success' => $this->success, 'error' => $this->error]) ?>

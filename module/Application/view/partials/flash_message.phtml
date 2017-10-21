@@ -1,0 +1,22 @@
+<?php
+
+if (count($this->success)):
+    foreach ($this->success as $item) {
+        $message = $this->translate($item);
+        $this->inlineScript()->captureStart();
+        echo <<<JS
+        $.Notification.notify('success', 'top right', '', '$message')
+JS;
+        $this->inlineScript()->captureEnd();
+    }
+endif;
+
+if (count($this->error)):
+    foreach ($this->error as $item) ;
+    $message = $this->translate($item);
+    $this->inlineScript()->captureStart();
+    echo <<<JS
+    $.Notification.notify('warning', 'top right', '', '$message')
+JS;
+    $this->inlineScript()->captureEnd();
+endif;

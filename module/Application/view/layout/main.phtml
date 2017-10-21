@@ -1,0 +1,115 @@
+<?= $this->doctype(); ?>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <?= $this->headMeta()
+            ->appendName('author', 'Ciclanohost')
+            ->appendName('description', 'Wowza Panel')
+            ->appendName('apple-touch-fullscreen', 'yes')
+            ->appendName('apple-mobile-web-app-capable', 'yes')
+            ->appendName('viewport', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no')
+            ->appendHttpEquiv('X-UA-Compatible', 'IE=edge,chrome=1'); ?>
+
+        <?= $this->headTitle('Santa Mania Checklist') ?>
+
+        <?= $this->headLink(['rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => 'https://maximweb.com.br/wp-content/uploads/2016/01/Logo-MW.png'])
+            ->prependStylesheet($this->basePath('assets/css/main.css'))
+            ->prependStylesheet($this->basePath('assets/css/responsive.css'))
+            ->prependStylesheet($this->basePath('assets/css/pages.css'))
+            ->prependStylesheet($this->basePath('assets/css/icons.css'))
+            ->prependStylesheet($this->basePath('assets/css/components.css'))
+            ->prependStylesheet($this->basePath('assets/css/core.css'))
+            ->prependStylesheet($this->basePath('assets/plugins/bootstrap-tour/css/bootstrap-tour.min.css'))
+            ->prependStylesheet($this->basePath('assets/css/bootstrap.min.css'))
+            ->prependStylesheet($this->basePath('assets/plugins/bootstrap-sweetalert/sweet-alert.css'))
+        ?>
+
+        <?= $this->headScript() ?>
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+        <style>
+            .ms-container {
+                width: 100%;
+            }
+
+            .content-page > .content {
+                margin-bottom: 60px;
+                margin-top: 60px;
+                padding: 0;
+            }
+
+            .table-checkbox {
+                width: 40px;
+            }
+
+            .code {
+                width: 100px;
+            }
+        </style>
+    </head>
+    <body class="fixed-left">
+        <!-- Begin page -->
+        <div id="wrapper">
+            <!-- Top Bar Start -->
+            <?= $this->partial('partials/topbar.phtml'); ?>
+            <!-- Top Bar End -->
+            <!-- ========== Left Sidebar Start ========== -->
+            <?php $this->navigation(\Application\Menu\Menu::class)->menu()->setPartial('partials/left-menu.phtml'); ?>
+            <?= $this->navigation(\Application\Menu\Menu::class)->menu()->render(); ?>
+            <!-- Left Sidebar End -->
+            <!-- ============================================================== -->
+            <!-- Start right Content here -->
+            <!-- ============================================================== -->
+            <?= $this->content; ?>
+            <!-- ============================================================== -->
+            <!-- End Right content here -->
+            <!-- ============================================================== -->
+            <!-- Right Sidebar -->
+            <!-- /Right-bar -->
+        </div>
+        <!-- END wrapper -->
+        <script>
+            var resizefunc = [];
+
+            function getBasePath() {
+                return '//' + window.location.host +  <?= "'" . $this->basePath() . "/'" ?>;
+            }
+        </script>
+
+        <?php
+        $this->inlineScript()->captureStart();
+        echo <<<JS
+            $(document).ready(function () {
+                $('#main-loading').hide();
+                $('.page-content').fadeIn();
+            });
+JS;
+        $this->inlineScript()->captureEnd();
+        ?>
+
+        <!-- jQuery  -->
+        <?= $this->inlineScript()
+            ->prependFile('https://unpkg.com/vue', 'text/javascript')
+            ->prependFile($this->basePath('assets/js/application.js'), 'text/javascript')
+            ->prependFile($this->basePath('assets/js/jquery.app.js'), 'text/javascript')
+            ->prependFile($this->basePath('assets/js/jquery.core.js'), 'text/javascript')
+            ->prependFile($this->basePath('assets/js/jquery.scrollTo.min.js'), 'text/javascript')
+            ->prependFile($this->basePath('assets/js/jquery.nicescroll.js'), 'text/javascript')
+            ->prependFile($this->basePath('assets/js/wow.min.js'), 'text/javascript')
+            ->prependFile($this->basePath('assets/js/waves.js'), 'text/javascript')
+            ->prependFile($this->basePath('assets/js/jquery.blockUI.js'), 'text/javascript')
+            ->prependFile($this->basePath('assets/js/jquery.slimscroll.js'), 'text/javascript')
+            ->prependFile($this->basePath('assets/js/fastclick.js'), 'text/javascript')
+            ->prependFile($this->basePath('assets/js/detect.js'), 'text/javascript')
+            ->prependFile($this->basePath('assets/plugins/bootstrap-tour/js/bootstrap-tour.min.js'), 'text/javascript')
+            ->prependFile($this->basePath('assets/js/bootstrap.min.js'), 'text/javascript')
+            ->prependFile($this->basePath('assets/plugins/multiselect/js/jquery.multi-select.js'), 'text/javascript')
+            ->prependFile($this->basePath('assets/plugins/bootstrap-sweetalert/sweet-alert.min.js'), 'text/javascript')
+            ->prependFile($this->basePath('assets/plugins/notifications/notify-metro.js'), 'text/javascript')
+            ->prependFile($this->basePath('assets/plugins/notifyjs/js/notify.js'), 'text/javascript')
+            ->prependFile($this->basePath('assets/js/jquery.min.js'), 'text/javascript')
+        ?>
+    </body>
+</html>

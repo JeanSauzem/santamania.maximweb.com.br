@@ -1,0 +1,20 @@
+<?php
+$this->inlineScript()->captureStart();
+echo <<<JS
+    function remove(url, code) {
+    swal({
+        title             : "Tem certeza que deseja remover",
+        text              : "Esta ação não poderá ser desfeita",
+        type              : "warning",
+        showCancelButton  : true,
+        confirmButtonClass: 'btn-warning',
+        confirmButtonText : "Remover",
+        cancelButtonText  : "Cancelar",
+        closeOnConfirm    : false
+    }, function () {
+        $(window.document.location).attr('href', getBasePath() + url + "/delete/" + code);
+    });
+}
+JS;
+$this->inlineScript()->captureEnd();
+?>
