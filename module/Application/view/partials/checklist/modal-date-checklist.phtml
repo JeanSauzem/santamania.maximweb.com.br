@@ -1,0 +1,42 @@
+<?php
+$this->headLink()
+	->prependStylesheet($this->basePath('assets/plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css'))
+    ->prependStylesheet($this->basePath('assets/plugins/ladda-buttons/css/ladda-themeless.min.css'))
+
+    
+?>
+    <div id="modal_date_checklist" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title">Nova Data do Checklist</h4>
+                </div>
+                <form method="post" action="#" id="checklist-date-form" data-parsley-validate novalidate>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="name" class="control-label">Data do Checklist</label>
+                                    <input type="text" name="date" class="form-control" onkeypress="checklists.calenderChecklist()" id="date-checklist" parsley-trigger="change" required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Fechar</button>
+                        <button type="submit" class="ladda-button btn btn-primary" data-style="expand-left">Salvar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+<?php
+$this->inlineScript()
+	->prependFile($this->basePath('assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js'), 'text/javascript')
+    ->prependFile($this->basePath('assets/pages/checklists/checklists.js'), 'text/javascript')
+    ->prependFile($this->basePath('assets/plugins/ladda-buttons/js/ladda.jquery.min.js'), 'text/javascript')
+    ->prependFile($this->basePath('assets/plugins/ladda-buttons/js/ladda.min.js'), 'text/javascript')
+    ->prependFile($this->basePath('assets/plugins/ladda-buttons/js/spin.min.js'), 'text/javascript')
+    ->prependFile($this->basePath('assets/plugins/parsleyjs/parsley.min.js'), 'text/javascript');
+?>

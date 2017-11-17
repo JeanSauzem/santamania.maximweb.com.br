@@ -75,8 +75,7 @@ abstract class AbstractService implements EventManagerAwareInterface
      */
     public function create(Array $data): AbstractEntity
     {
-        $entity = new $this->entity($data);
-
+        $entity = new $this->entity($data);      
         if (method_exists($entity, 'setCode'))
             $entity->setCode($this->getCodeHash());
 

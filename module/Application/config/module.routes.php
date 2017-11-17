@@ -256,5 +256,81 @@ return [
                 ],
             ],
         ],
+        'prodution'           => [
+            'type'          => Http\Literal::class,
+            'options'       => [
+                'route'    => '/prodution',
+                'defaults' => [
+                    'controller' => Controller\ProdutionController::class,
+                    'action'     => 'index',
+                ],
+            ],
+            'may_terminate' => true,
+            'child_routes'  => [
+                'default'   => [
+                    'type'    => Http\Segment::class,
+                    'options' => [
+                        'route'       => '[/:action][/:id]',
+                        'constraints' => [
+                            'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                            'id'     => '\d+',
+                        ],
+                        'defaults'    => [],
+                    ],
+                ],
+                'paginator' => [
+                    'type'    => Http\Segment::class,
+                    'options' => [
+                        'route'       => '[/page/:page]',
+                        'constraints' => [
+                            'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                            'page'   => '\d+',
+                        ],
+                        'defaults'    => [
+                            'action' => 'index',
+                            'page'   => 1,
+                        ],
+                    ],
+                ],
+            ],
+        ],
+        'checklist'           => [
+            'type'          => Http\Literal::class,
+            'options'       => [
+                'route'    => '/checklist',
+                'defaults' => [
+                    'controller' => Controller\ChecklistController::class,
+                    'action'     => 'index',
+                ],
+            ],
+            'may_terminate' => true,
+            'child_routes'  => [
+                'default'   => [
+                    'type'    => Http\Segment::class,
+                    'options' => [
+                        'route'       => '[/:action][/:id]',
+                        'constraints' => [
+                            'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                            'id'     => '\d+',
+                        ],
+                        'defaults'    => [],
+                    ],
+                ],
+                'paginator' => [
+                    'type'    => Http\Segment::class,
+                    'options' => [
+                        'route'       => '[/page/:page]',
+                        'constraints' => [
+                            'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                            'page'   => '\d+',
+                        ],
+                        'defaults'    => [
+                            'action' => 'index',
+                            'page'   => 1,
+                        ],
+                    ],
+                ],
+            ],
+        ],
     ],
 ];

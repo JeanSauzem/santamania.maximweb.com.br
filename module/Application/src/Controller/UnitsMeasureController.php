@@ -30,7 +30,7 @@ class UnitsMeasureController extends AbstractController
             switch ($data['action']) {
 
                 case"units-measure-save":
-
+                   
                     $view = [
                         'success' => true,
                         'message' => 'Salvo com sucesso',
@@ -39,7 +39,22 @@ class UnitsMeasureController extends AbstractController
                     return new JsonModel($view);
 
                     break;
+                case"units-measure-save-ajax":
+                
+                    $newUnit = $this->service->create($data['data']);
+                    $unit = [
+                        'id'   => $newUnit->getId(),
+                        'name' => $data['data']['name']
+                    ];
+            
+                    $view = [
+                        'units' =>  $unit,
+                        'success' => true,
+                        'message' => 'Salvo com sucesso',
+                    ];
 
+                    return new JsonModel($view);
+                    break;
             }
         }
 

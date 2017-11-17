@@ -1,0 +1,67 @@
+<?php
+
+namespace Application\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * QuantityWarehouse
+ *
+ * @ORM\Table(name="quantity_warehouse", indexes={@ORM\Index(name="id_product_checked", columns={"id_product_checked"}), @ORM\Index(name="quantity_warehouse_ibfk_2", columns={"id_warehouses"})})
+ * @ORM\Entity
+ */
+class QuantityWarehouse
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="quantity", type="integer", nullable=false)
+     */
+    private $quantity;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="created_at", type="datetime", nullable=false)
+     */
+    private $createdAt;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="updated_at", type="datetime", nullable=false)
+     */
+    private $updatedAt;
+
+    /**
+     * @var \Application\Entity\ProductCheck
+     *
+     * @ORM\ManyToOne(targetEntity="Application\Entity\ProductCheck")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_product_checked", referencedColumnName="id")
+     * })
+     */
+    private $idProductChecked;
+
+    /**
+     * @var \Application\Entity\Warehouses
+     *
+     * @ORM\ManyToOne(targetEntity="Application\Entity\Warehouses")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_warehouses", referencedColumnName="id")
+     * })
+     */
+    private $idWarehouses;
+
+
+}
+

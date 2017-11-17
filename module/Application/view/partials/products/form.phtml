@@ -30,6 +30,7 @@ $this->headLink()
                         <?php $field->setAttributes([
                             'class'            => 'selectpicker',
                             'data-live-search' => 'true', 'data-style' => 'btn-white',
+                            'id'               => 'product'
                         ]); ?>
                         <?php $field->setLabel('Categoria do Produto'); ?>
                         <?php $field->setLabelAttributes(['class' => 'col-md-2 control-label']); ?>
@@ -50,6 +51,7 @@ $this->headLink()
                         <?php $field->setAttributes([
                             'class'            => 'selectpicker',
                             'data-live-search' => 'true', 'data-style' => 'btn-white',
+                            'id'               => 'units',
                         ]); ?>
                         <?php $field->setLabel('Unidade de Medida'); ?>
                         <?php $field->setLabelAttributes(['class' => 'col-md-2 control-label']); ?>
@@ -64,7 +66,6 @@ $this->headLink()
                             </div>
                         </div>
                     </div>
-
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-8">
                             <div class="checkbox checkbox-primary">

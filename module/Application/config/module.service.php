@@ -34,5 +34,28 @@ return [
         Filter\WarehousesFilter::class          => Filter\Factory\WarehousesFilterFactory::class,
         Form\WarehousesForm::class              => Form\Factory\WarehousesFormFactory::class,
         Service\WarehousesService::class        => Service\Factory\WarehousesServiceFactory::class,
+
+        // PRODUTION
+        Service\ProdutionService::class         => Service\Factory\ProdutionServiceFactory::class,
+        Filter\ProdutionFilter::class           => Filter\Factory\ProdutionFilterFactory::class,
+        Form\ProdutionForm::class               => Form\Factory\ProdutionFormFactory::class,
+
+        //CHECkLIST
+        Service\ChecklistService::class         => Service\Factory\ChecklistServiceFactory::class,
+        Filter\ChecklistFilter::class           => Filter\Factory\ChecklistFilterFactory::class,
+        Form\ChecklistForm::class               => Form\Factory\ChecklistFormFactory::class,
+
+        //TOTAL REPORT
+        Service\TotalReportService::class       => Service\Factory\TotalReportServiceFactory::class,
+
+        //COUNTER
+        Service\CounterService::class           => Service\Factory\CounterServiceFactory::class,
+
+        //PRODUCT CHECK
+        Service\ProductCheckService::class      => Service\Factory\ProductCheckServiceFactory::class,
+
+        //QUANTITY WAREHOUSE
+        Service\QuantityWarehouseService::class => Service\Factory\QuantityWarehouseServiceFactory::class
+
     ],
 ];

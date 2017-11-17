@@ -92,6 +92,7 @@ JS;
         <!-- jQuery  -->
         <?= $this->inlineScript()
             ->prependFile('https://unpkg.com/vue', 'text/javascript')
+            ->prependFile($this->basePath('assets/js/ajax-service.js'), 'text/javascript')
             ->prependFile($this->basePath('assets/js/application.js'), 'text/javascript')
             ->prependFile($this->basePath('assets/js/jquery.app.js'), 'text/javascript')
             ->prependFile($this->basePath('assets/js/jquery.core.js'), 'text/javascript')

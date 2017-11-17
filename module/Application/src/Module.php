@@ -8,6 +8,8 @@ use Zend\ModuleManager\Feature\ConsoleUsageProviderInterface;
 use Zend\ModuleManager\Feature\ControllerProviderInterface;
 use Zend\ModuleManager\Feature\ServiceProviderInterface;
 use Zend\ModuleManager\Feature\ViewHelperProviderInterface;
+use Zend\ModuleManager\ModuleManager;
+use Zend\Mvc\MvcEvent;
 
 class Module implements ConfigProviderInterface,
     ControllerProviderInterface,
@@ -24,7 +26,11 @@ class Module implements ConfigProviderInterface,
     {
         return include __DIR__ . '/../config/module.config.php';
     }
-
+    
+    public function onBootstrap(MvcEvent $e)
+    {
+        (new \Application\Module\OnBootstrap($e));
+    }
     /**
      * Returns an array or a string containing usage information for this module's Console commands.
      * The method is called with active Zend\Console\Adapter\AdapterInterface that can be used to directly access

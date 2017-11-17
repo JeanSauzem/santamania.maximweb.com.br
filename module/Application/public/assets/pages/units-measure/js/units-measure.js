@@ -17,17 +17,21 @@ var UnitsMeasure = function () {
         });
 
         AjaxService.exec(Application.getBasePath() + '/units-measure/ajax',
-            {action: 'units-measure-save', data: config},
-            function (error) {
-                console.log(error);
-            },
+            {action: 'units-measure-save-ajax', data: config},
             function () {
             },
             function (response) {
                 if (response.success) {
-                    toastr.success(response.message);
+                    $('#units-measure-modal').modal('hide');
+                    $('#units').append('<option value='+response.units.id+' selected>'+response.units.name+'</option>');
+                    $('#units').selectpicker('refresh');
+
                 }
+            }, 
+            function (error) {
+                console.log(error);
             }
+            
         );
     };
 

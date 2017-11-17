@@ -2,7 +2,7 @@ $(document).ready(function () {
     //$.Notification.notify('custom', 'top right', 'Sample Notification', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vitae orci ut dolor scelerisque aliquam.')
 });
 
-function userDelete(code) {
+function remove(code) {
     swal({
         title             : "Are you sure?",
         text              : "You will not be able to recover this imaginary file!",

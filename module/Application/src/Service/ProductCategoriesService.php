@@ -17,4 +17,16 @@ class ProductCategoriesService extends AbstractService
     {
         return parent::update($id, $data);
     }
+
+    public function delete(Array $data): AbstractEntity
+    {   
+        $entity = $this->entityManager->getRepository($this->entity)->findOneBy($data);
+        if ($entity) {
+            $this->entityManager->getConnection()->beginTransaction();
+            $this->getEventManager()->trigger('deleteProduct', $this, ['entity' => $entity]);
+            $entity = parent::delete(['id' => $entity->getId() ]);
+            $this->entityManager->getConnection()->commit();
+        }
+        return $entity;
+    }
 }

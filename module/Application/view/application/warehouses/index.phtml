@@ -88,4 +88,5 @@ $this->headScript()
 $this->inlineScript()
     ->prependFile($this->basePath('assets/pages/warehouses/warehouses.js'), 'text/javascript');
 ?>
+
 <?= $this->partial('partials/flash_message.phtml', ['success' => $this->success, 'error' => $this->error]) ?>

@@ -46,6 +46,6 @@ class ProductsFilter extends InputFilter
             'name'     => 'active',
             'required' => false,
         ]);
-
+        
     }
 }

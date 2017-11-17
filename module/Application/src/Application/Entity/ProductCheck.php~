@@ -1,0 +1,74 @@
+<?php
+
+namespace Application\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * ProductCheck
+ *
+ * @ORM\Table(name="product_check", indexes={@ORM\Index(name="id_counter", columns={"id_counter"}), @ORM\Index(name="id_product", columns={"id_product"})})
+ * @ORM\Entity
+ */
+class ProductCheck
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="total", type="integer", nullable=false)
+     */
+    private $total;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="checked", type="integer", nullable=false)
+     */
+    private $checked;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="created_at", type="datetime", nullable=false)
+     */
+    private $createdAt;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="updated_at", type="datetime", nullable=false)
+     */
+    private $updatedAt;
+
+    /**
+     * @var \Application\Entity\Counter
+     *
+     * @ORM\ManyToOne(targetEntity="Application\Entity\Counter")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_counter", referencedColumnName="id")
+     * })
+     */
+    private $idCounter;
+
+    /**
+     * @var \Application\Entity\Products
+     *
+     * @ORM\ManyToOne(targetEntity="Application\Entity\Products")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_product", referencedColumnName="id")
+     * })
+     */
+    private $idProduct;
+
+
+}
+

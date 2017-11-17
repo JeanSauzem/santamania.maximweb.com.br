@@ -1,0 +1,17 @@
+
+// vendor\bin\doctrine-module orm:convert-mapping --from-database annotation --namespace="Application\Entity\\" module/Application/src/
+// vendor\bin\doctrine-module orm:generate-entities --generate-annotations="true" --generate-methods="true" module/Application/src/
+
+
+// vendor\bin\doctrine-module orm:generate-repositories module/Application/src/
+
+//convert datas
+//         if ($repository) {
+//            $array = [];
+//            foreach ($repository->toArray() as $key => $value) {
+//                if ($value instanceof \DateTime)
+//                    $array[$key] = $value->format('d/m/Y');
+//                else
+//                    $array[$key] = $value;
+//            }
+//            var_dumpve$array);

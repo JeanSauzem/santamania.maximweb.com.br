@@ -31,15 +31,22 @@ class ProductCategoriesController extends AbstractController
 
                 case"products-categories-save":
 
+                    unset($data['action']);
+                    $categorie = $this->service->create($data);
+                    
+                    $newcategorie = [
+                        'id'   => $categorie->getId(),
+                        'name' => $data['name']
+                    ];
+
                     $view = [
+                        'category' => $newcategorie,
                         'success' => true,
                         'message' => 'Salvo com sucesso',
                     ];
 
                     return new JsonModel($view);
-
                     break;
-
             }
         }
 

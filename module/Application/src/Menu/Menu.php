@@ -42,11 +42,10 @@ class Menu extends DefaultNavigationFactory
                 'route' => 'home',
                 'icon'  => 'fa fa-home',
             ];
-
-            $navigation[] = [
-                'label' => 'Usuários',
-                'route' => 'users/default',
-                'icon'  => 'md md-account-child',
+            $navigation[] =  [
+                'label' => 'Checklist',
+                'route' => 'checklist/default',
+                'icon' => 'fa fa-check-circle'
             ];
 
             $navigation[] = [
@@ -72,9 +71,22 @@ class Menu extends DefaultNavigationFactory
                         'label' => 'Local de Armazenamento',
                         'route' => 'warehouses/default',
                     ],
+                    [
+                        'label' => 'Usuários',
+                        'route' => 'users/default',
+                    ]
                 ],
             ];
-
+            $navigation[] = [
+                'label' => 'Produção',
+                'route' => 'prodution/default',
+                'icon'  => 'fa fa-rocket',
+            ];
+              $navigation[] = [
+                'label' => 'Relatório',
+                'route' => 'prodution/default',
+                'icon'  => 'fa fa-book',
+            ];
             $mvcEvent    = $container->get('Application')->getMvcEvent();
             $routeMatch  = $mvcEvent->getRouteMatch();
             $router      = $mvcEvent->getRouter();

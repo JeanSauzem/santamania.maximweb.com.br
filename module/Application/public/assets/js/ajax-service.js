@@ -16,11 +16,11 @@ var AjaxService = function () {
                 error     : function (error) {
                     errorCallback(error.responseText);
                 },
-                beforeSend: function (data) {
-                    beforeSendCallback(data);
-                },
                 success   : function (data) {
                     successCallback(data);
+                },
+                beforeSend: function (data) {
+                    beforeSendCallback(data);
                 }
             });
         }

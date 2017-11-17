@@ -1,0 +1,28 @@
+<?php if ($this->data): ?>
+    <?php /** @var $item \Application\Entity\ProductCategories */ ?>
+    <?php foreach ($this->data as $item): ?>
+        <tr>
+            <th><input class="checkbox" type="checkbox"></th>
+            <th scope="row"><?= "{$item->getId()}" ?></th>
+            <td><?php echo date_format($item->getDate(),"d-m-Y") ?></td>
+            <td class="text-right">
+
+                <a href="<?= $this->url('checklist/default', ['action' => 'check-product', 'id' => $item->getId()]) ?>"
+                   class="btn btn-primary btn-sm tooltips"
+                   data-toggle="tooltip" data-placement="top"
+                   title="Editar">
+                    <i class="fa fa-pencil"></i>
+                </a>
+
+                <button onclick="remove('checklist', '<?= $item->getId() ?>')"
+                        class="btn btn-danger btn-sm tooltips user-delete"
+                        data-toggle="tooltip" data-placement="top"
+                        title="Deletar">
+                    <i class="fa fa-trash"></i>
+                </button>
+
+            </td>
+        </tr>
+    <?php endforeach; ?>
+<?php endif; ?>
+<?= $this->partial('partials/delete.phtml'); ?>

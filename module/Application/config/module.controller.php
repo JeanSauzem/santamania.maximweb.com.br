@@ -11,6 +11,8 @@ return [
         Controller\ProductStatusController::class     => Controller\Factory\ProductStatusControllerFactory::class,
         Controller\ProductsController::class          => Controller\Factory\ProductsControllerFactory::class,
         Controller\UnitsMeasureController::class      => Controller\Factory\UnitsMeasureControllerFactory::class,
-        Controller\WarehousesController::class => Controller\Factory\WarehousesControllerFactory::class,
+        Controller\WarehousesController::class 		  => Controller\Factory\WarehousesControllerFactory::class,
+        Controller\ProdutionController::class 		  => Controller\Factory\ProdutionControllerFactory::class,
+        Controller\ChecklistController::class         => Controller\Factory\ChecklistControllerFactory::class,
     ],
 ];

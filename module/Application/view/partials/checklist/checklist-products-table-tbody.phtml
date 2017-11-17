@@ -1,0 +1,30 @@
+<?php if ($this->data): ?>
+    <?php /** @var $item \Application\Entity\Products */ ?>
+    <?php foreach ($this->data as $item): ?>
+        <?php
+        if ($item['checked'] == 1) {
+            ?>
+            <tr style="background-color:  #90ee90; color: #000">
+            <?php
+        } else {
+            ?>
+            <tr style="background-color:  #4E2F2F; color: #fff">
+            <?php
+        }
+        ?>
+            <th><input class="checkbox" type="checkbox"></th>
+            <th scope="row"><?= "{$item['idCheck']}" ?></th>
+            <td><?= "{$item['product']->getName()}" ?></td>
+            <td><?= "{$item['quantity']}" ?></td>
+            <td class="text-right">
+                <a href="<?= $this->url('checklist/default', ['action' => 'checked', 'id' => $item['idCheck']]) ?>"
+                   class="btn btn-primary btn-sm tooltips"
+                   data-toggle="tooltip" data-placement="top"
+                   title="Editar">
+                    <i class="fa fa-pencil"></i>
+                </a>
+            </td>
+        </tr>
+    <?php endforeach; ?>
+<?php endif; ?>
+<?= $this->partial('partials/delete.phtml'); ?>
